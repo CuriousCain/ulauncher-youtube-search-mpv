@@ -45,7 +45,9 @@ class ItemEnterListener(EventListener):
         data = event.get_data()
         url = data['url']
 
-        subprocess.call(["mpv", url])
+        #subprocess.call(["mpv", url])
+        subprocess.Popen(["mpv", url])
+
 
         return HideWindowAction()
 
