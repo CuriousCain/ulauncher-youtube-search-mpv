@@ -1,5 +1,6 @@
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.CopyToClipboardAction import CopyToClipboardAction
+from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAction
 from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
 from ulauncher.api.shared.action.DoNothingAction import DoNothingAction
 from ulauncher.api.shared.action.OpenUrlAction import OpenUrlAction
@@ -39,7 +40,7 @@ def generate_search_item(search, description_template):
         icon=search['thumbnail'] or ICON_FILE,
         name=search['title'],
         description=generate_description(description_template, search),
-        on_enter=OpenUrlAction(search['url'])
+        on_enter=ExtensionCustomAction({'url': search['url']})
     )
 
 
