@@ -40,15 +40,14 @@ class KeywordQueryEventListener(EventListener):
 
         return RenderResultListAction(generate_search_items(results, extension.preferences['description_template']))
 
- class ItemEnterListener(EventListener):
-      def on_event(self, event, extension):
-          data = event.get_data()
-          url = data['url']
+class ItemEnterListener(EventListener):
+    def on_event(self, event, extension):
+        data = event.get_data()
+        url = data['url']
 
-          subprocess.call(["mpv", url])
+        subprocess.call(["mpv", url])
 
-
-          return HideWindowAction()
+        return HideWindowAction()
 
 
 if __name__ == "__main__":
